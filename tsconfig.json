@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "es2015",
+    "target": "es2017",
+    "moduleResolution": "Node",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "removeComments": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "allowSyntheticDefaultImports": true,
+    "outDir": "./src/components",
+    "jsx": "react"
+  },
+  "lib": ["ES2015", "ES2016", "ES2017", "dom"],
+  "include": [
+    "src/parts/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
