@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { render } from 'react-dom';
 import CssGrid from './components/CssGrid';
 
@@ -8,10 +8,10 @@ const areas = [
 ];
 
 const App = () => {
-  return <CssGrid styles={{ top: 0 }} rows={0} columns="50px 1fr" areas={areas} flow="column" fff="hoge">HOGE</CssGrid>
+  return <CssGrid />
 }
 
 render(
-  <App />,
+  <CssGrid />,
   document.getElementById('app')
 );

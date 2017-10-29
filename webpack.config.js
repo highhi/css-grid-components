@@ -7,7 +7,7 @@ module.exports = {
   devtool: IS_DEV ? 'inline-source-map' : '',
 
   entry: Object.assign({
-    index: path.join(__dirname, 'src', 'index.js'),
+    index: path.join(__dirname, 'src', 'index.tsx'),
   }),
 
   output: {
@@ -17,7 +17,7 @@ module.exports = {
 
   module: {
     rules: [
-      { test: /\.js?$/, use: 'babel-loader', exclude: [/node_modlues/] },
+      { test: /\.tsx?$/, use: 'awesome-typescript-loader', exclude: [/node_modlues/] },
     ],
   },
 

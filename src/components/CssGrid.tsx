@@ -3,16 +3,17 @@ import { IBaseProps } from '../types/types';
 import { mergeDefaultProps } from '../util/util';
 
 interface IProps extends IBaseProps {
-  rows: string;
-  columns: string;
-  areas: string | string[];
-  reRows: string;
-  flow: string;
-  justify: string;
-  align: string;
+  rows?: string;
+  columns?: string;
+  areas?: string | string[];
+  reRows?: string;
+  flow?: string;
+  justify?: string;
+  align?: string;
 }
 
 const CssGrid: React.SFC<IProps> = (props: IProps): JSX.Element => {
+  const Wrapper = props.wrapper as any; // 苦肉の策
   const areas = Array.isArray(props.areas) ? props.areas.map(area => `"${area}"`).join(' ') : props.areas;
   const mergedStyles = Object.assign({ display: 'grid' }, {
     gridTemplateRows: props.rows,
@@ -23,17 +24,18 @@ const CssGrid: React.SFC<IProps> = (props: IProps): JSX.Element => {
     alignContent: props.align,
   }, props.styles);
 
-  return <props.wrapper className={props.classes} style={mergedStyles}>{props.children}</props.wrapper>;
+  return <Wrapper style={mergedStyles}>{props.children}</Wrapper>;
 };
 
 CssGrid.defaultProps = mergeDefaultProps({
-  rows: '',
-  columns: '',
-  areas: '',
-  reRows: '',
-  flow: '',
-  justify: '',
-  align: '',
+  rows: undefined,
+  columns: undefined,
+  areas: undefined,
+  reRows: undefined,
+  flow: undefined,
+  justify: undefined,
+  align: undefined,
 });
 
 export default CssGrid;
+
