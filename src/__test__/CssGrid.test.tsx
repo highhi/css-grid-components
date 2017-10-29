@@ -2,14 +2,12 @@ import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import * as React from 'react';
 import { findDOMNode } from 'react-dom';
-import TestRenderer from 'react-test-renderer';
 import CssGrid from '../components/CssGrid';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('CssGrid', () => {
   let wrapper;
-  let dom;
 
   beforeEach(() => {
     wrapper = shallow(<CssGrid>Hoge Fuga</CssGrid>);

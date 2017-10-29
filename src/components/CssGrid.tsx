@@ -16,6 +16,17 @@ interface IProps extends ILayout, IBaseProps {
   layout?: ILayout,
 }
 
+type TStringOrUndefined = string | undefined;
+
+interface IGridStyles {
+  gridTemplateRows?: TStringOrUndefined,
+  gridTemplateColumns?: TStringOrUndefined,
+  gridTemplateAreas?: TStringOrUndefined,
+  gridAutoFlow?: TStringOrUndefined,
+  justifyContent?: TStringOrUndefined,
+  alignContent?: TStringOrUndefined,
+}
+
 const styleNames = {
   rows: 'gridTemplateRows',
   columns: 'gridTemplateColumns',
@@ -25,12 +36,12 @@ const styleNames = {
   align: 'alignContent',
 };
 
-function getAreasValue(areas?: string | string[]): string | null {
-  if (!areas) return null;
+function getAreasValue(areas?: string | string[]): TStringOrUndefined {
+  if (!areas) return;
   return Array.isArray(areas) ? areas.map(area => `"${area}"`).join(' ') : areas;
 }
 
-function getGridStyles(props: IProps) {
+function getGridStyles(props: IProps): IGridStyles {
   if (props.layout) {
     const { layout } = props;
     return Object.keys(layout).reduce((acc, key) => {
