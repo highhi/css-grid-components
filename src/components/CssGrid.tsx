@@ -6,7 +6,6 @@ interface ILayout {
   rows?: string;
   columns?: string;
   areas?: string | string[];
-  reRows?: string;
   flow?: string;
   justify?: string;
   align?: string;
@@ -67,16 +66,14 @@ function getGridStyles(props: IProps): IGridStyles {
 
 const CssGrid: React.SFC<IProps> = (props: IProps): JSX.Element => {
   const Wrapper = props.wrapper as any; // 苦肉の策
-  const areas = Array.isArray(props.areas) ? props.areas.map(area => `"${area}"`).join(' ') : props.areas;
   const mergedStyles = Object.assign({ display: 'grid' }, getGridStyles(props), props.styles);
   return <Wrapper id={props.id} className={props.classes} style={mergedStyles}>{props.children}</Wrapper>;
 };
 
-CssGrid.defaultProps = mergeDefaultProps({
+CssGrid.defaultProps = mergeDefaultProps<ILayout>({
   rows: undefined,
   columns: undefined,
   areas: undefined,
-  reRows: undefined,
   flow: undefined,
   justify: undefined,
   align: undefined,
