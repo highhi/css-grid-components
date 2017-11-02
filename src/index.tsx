@@ -3,12 +3,6 @@ import { render } from 'react-dom';
 import CssGrid from './components/CssGrid';
 import GridItem from './components/GridItem';
 
-const areas = [
-  "header header header",
-  "area-a area-b area-c",
-  "footer footer footer"
-];
-
 const layout = {
   areas: [
     "header header header",
@@ -17,15 +11,15 @@ const layout = {
   ],
   columns: "100px 100px 100px",
   rows: `
-    100px 
-    100px 
-    100px
+    80px 
+    80px 
+    80px
   `,
 };
 
 const App: React.SFC = (): JSX.Element => {
   return (
-    <CssGrid rows="100px 100px 100px" columns="100px 100px 100px" areas={areas}>
+    <CssGrid layout={layout}>
       <GridItem wrapper="header" area="header"></GridItem>
       <GridItem wrapper="p" area="area-a"></GridItem>
       <GridItem wrapper="p" area="area-b"></GridItem>

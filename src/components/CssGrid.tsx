@@ -70,13 +70,7 @@ const CssGrid: React.SFC<IProps> = (props: IProps): JSX.Element => {
   return <Wrapper id={props.id} className={props.classes} style={mergedStyles}>{props.children}</Wrapper>;
 };
 
-CssGrid.defaultProps = mergeDefaultProps<ILayout>({
-  rows: undefined,
-  columns: undefined,
-  areas: undefined,
-  flow: undefined,
-  justify: undefined,
-  align: undefined,
-});
+CssGrid.defaultProps = mergeDefaultProps();
 
 export default CssGrid;
+

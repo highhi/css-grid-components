@@ -21,10 +21,6 @@ const GridItem: React.SFC<IProps> = (props: IProps): JSX.Element => {
   return <Wrapper className={props.classes} style={styles}>{props.children}</Wrapper>;
 }
 
-GridItem.defaultProps = mergeDefaultProps<IGrid>({
-  row: undefined,
-  column: undefined,
-  area: undefined,
-});
+GridItem.defaultProps = mergeDefaultProps();
 
 export default GridItem;
